@@ -7,7 +7,7 @@ Gem::Specification.new do |gem|
   gem.version       = Colorpicker::VERSION
   gem.authors       = ["antho1404"]
   gem.email         = ["anthony.estebe@gmail.com"]
-  gem.description   = %q{A HTML5 color picker }
+  gem.description   = %q{A HTML5 color picker}
   gem.summary       = %q{A simple color picker packaged for Rails 3.1+ using asset pipeline}
   gem.homepage      = "http://github.com/antho1404/colorpicker"
 
