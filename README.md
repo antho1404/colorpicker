@@ -1,6 +1,8 @@
 # Colorpicker
 
-TODO: Write a gem description
+Add a simple canvas color picker for your rails projects
+
+![screen](http://i49.tinypic.com/ekrdjc.png)
 
 ## Installation
 
@@ -18,7 +20,36 @@ Or install it yourself as:
 
 ## Usage
 
-TODO: Write usage instructions here
+You can simply add the following lines:
+
+in application.js
+
+    //= require colorpicker
+
+and in application.css
+
+    *= require colorpicker
+
+Now you are able to use the colorpicker 
+
+    options = {
+        color: {
+            r: 0,
+            g: 0,
+            b: 0
+        },
+        onChange: function(colorHSB) {
+            // do stuff with color
+            console.log(color.toRGB());
+            console.log(color.toHex());
+        }
+    }
+    new ColorPicker($("#myElemToClick"), options);
+
+That's all, every times you will click on your elem with id myElemToClick, the color picker will be display bellow.
+Of course options are optional and color can be gave with rgb map or hsb map or hex string.
+
+Hope you will enjoy it ;)
 
 ## Contributing
 
