@@ -90,7 +90,7 @@ class ColorPicker
     </div>
   """
 
-  constructor: (@elem, @options) ->
+  constructor: (@elem, @options={}) ->
     @color = new Color @options.color
     @view = $(ColorPicker.tmpl)
 
@@ -179,7 +179,7 @@ class ColorPicker
     @elems["hue_cursor"].css
       top: parseInt @size - @size * @color.h / 360, 10
     
-    @options.onChange @color
+    @options.onChange @color if @options.onChange
     
   selectorMove: (e) ->
     return unless @selectorEdition
