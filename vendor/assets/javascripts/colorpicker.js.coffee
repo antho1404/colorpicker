@@ -91,6 +91,7 @@ class ColorPicker
   """
 
   constructor: (@elem, @options={}) ->
+    @options.trigger_event ||= "click"
     @color = new Color @options.color
     @view = $(ColorPicker.tmpl)
 
@@ -103,10 +104,22 @@ class ColorPicker
 
     _this = @
     $(document).bind "click", (e) => @hide()
-    $(@elem).click ->
+    $(@elem).bind @options.trigger_event, ->
       _this.show() if $(this).html() is ""
       false
     
+    if $(@elem).is("input")
+      newelem = $("<div></div>")
+      newelem.css
+        position: "absolute"
+        left: $(@elem).position().left
+        top: $(@elem).position().top
+      $(@elem).before newelem
+      @elem = newelem
+
+    $(@elem).bind 'click', ->
+      _this.show() if $(this).html() is ""
+      false
 
     @update()
 

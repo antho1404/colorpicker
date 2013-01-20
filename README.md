@@ -33,6 +33,7 @@ and in application.css
 Now you are able to use the colorpicker 
 
     options = {
+        trigger_event: "click",
         color: {
             r: 0,
             g: 0,
@@ -40,8 +41,8 @@ Now you are able to use the colorpicker
         },
         onChange: function(colorHSB) {
             // do stuff with color
-            console.log(color.toRGB());
-            console.log(color.toHex());
+            console.log(colorHSB.toRGB());
+            console.log(colorHSB.toHex());
         }
     }
     new ColorPicker($("#myElemToClick"), options);
